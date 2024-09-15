@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Home{%endblock%}
+
+{% block content %}
+
+{% if qr_img_bytes %} <!-- then request info will also be active -->
+
+<img src="data:image/png;base64,{{qr_img_bytes}}" > 
+
+<div class="alert alert-success" role="alert">
+    <p>Request details:</p>
+    <ul> 
+        <li>QR Code Data: {{request_info['qr_data']}}</li>
+        <li>Foreground colour: {{request_info['colour']}}</li>
+        <li>Background colour: {{request_info['bg_colour']}}</li>
+    </ul>
+</div>
+
+{% endif %}
+
+<form action="#" method="POST">
+    <input name="qrdata" placeholder="Data for QR code">
+    <input name="colour" placeholder="Foreground colour (hex)">
+    <input name="bg_colour" placeholder="Background colour (hex)">
+
+    <button type="submit">Generate</button>
+</form>
+
+
+{% endblock %}
