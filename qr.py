@@ -21,16 +21,3 @@ def make_qr(data = ':)', colour="black", bg_colour="white"):
     qr_bytes = byte_storage.getvalue()
     display_bytes = base64.b64encode(qr_bytes).decode('utf-8')
     return display_bytes
-
-
-''' archived simpler function
-def make_qr(data = ':)'):
-    
-    my_qr = qrcode.make(data)
-    byte_storage = io.BytesIO()
-    my_qr.save(byte_storage)
-
-    qr_bytes = byte_storage.getvalue()
-    display_bytes = base64.b64encode(qr_bytes).decode('utf-8')
-    return display_bytes
-'''
