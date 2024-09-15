@@ -12,8 +12,8 @@ def home():
     if request.method == 'POST' and all(x in request.form for x in ['qrdata', 'colour', 'bg_colour']):
         request_info = {
             'qr_data': request.form['qrdata'],
-            'colour': request.form['colour'], 
-            'bg_colour': request.form['bg_colour']
+            'colour': request.form['colour'] if request.form['colour'] != '' else 'black', 
+            'bg_colour': request.form['bg_colour'] if request.form['bg_colour'] != '' else 'white'
         }
         try:
             qr_img_bytes = qr.make_qr(
